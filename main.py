@@ -1,20 +1,12 @@
 import asyncio
-from aiogram import Bot, Dispatcher, types
-from dotenv import load_dotenv
-from os import getenv
 import logging
 
 
+from bot_config import bot, dp
 from handlers.random_recipe import random_router
 from handlers.user_info import user_info_router
 from handlers.send_welcome import send_welcome_router
 from handlers.dishes import dishes_router
-
-
-load_dotenv()
-token = getenv('BOT_TOKEN')
-bot = Bot(token=token)
-dp = Dispatcher()
 
 
 async def start():
