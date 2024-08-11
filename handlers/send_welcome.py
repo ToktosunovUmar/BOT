@@ -15,6 +15,9 @@ async def send_welcome(message: types.Message):
             [
                 types.InlineKeyboardButton(text="наш сайт", url='https://barashek.kg/')
             ],
+            [
+                types.InlineKeyboardButton(text="оставить отзыв", callback_data="feedback")
+            ]
         ]
 
     )
@@ -24,3 +27,4 @@ async def send_welcome(message: types.Message):
 @send_welcome_router.callback_query(F.data == 'adress')
 async def about_us_handler(callback):
     await callback.message.answer('Наш адрес: ул. Примерная, 123')
+
