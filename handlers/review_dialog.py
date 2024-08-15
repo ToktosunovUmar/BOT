@@ -63,14 +63,6 @@ async def process_visit_date(message: types.Message, state: FSMContext):
     await state.set_state(RestourantReview.food_rating)
 
 
-words_numbers = {
-    'плохо': '2',
-    'довлетворительно': '3',
-    'хорошо': '4',
-    'великолепно': '5'
-}
-
-
 @dialog_router.message(RestourantReview.food_rating)
 async def process_food_rating(message: types.Message, state: FSMContext):
     await state.update_data(food_rating=message.text)
