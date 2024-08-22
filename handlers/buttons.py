@@ -1,4 +1,4 @@
-from aiogram import types, Router, F
+from aiogram import types, Router
 from aiogram.filters.command import Command
 from bot_config import database
 from aiogram.types import FSInputFile
@@ -11,9 +11,7 @@ async def menu(message: types.Message):
     kb = types.InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                types.InlineKeyboardButton(text="drinks", callback_data='drinks'),
-            ],
-            [
+                types.InlineKeyboardButton(text='drinks', callback_data='drinks'),
                 types.InlineKeyboardButton(text='roast', callback_data='roast')
             ],
             [
@@ -24,13 +22,15 @@ async def menu(message: types.Message):
     await message.answer('Выберите категорию блюд', reply_markup=kb)
 
 
-signal = ('dinks', 'roast', "soup")
+signal = ('drinks', 'roast', "soup")
 
 
 @buttons_router.callback_query(lambda call: call.data in signal)
 async def dishes(call: types.CallbackQuery):
     query = """
-    SELECT * FROM dishes JOIN categories ON dishes.category_id = categories.id WHERE categories.name = ?
+    SELECT * FROM dishes JOIN 
+    categories ON dishes.category_id = categories.id
+    WHERE categories.name = ?
     """
 
     data = database.fetch(

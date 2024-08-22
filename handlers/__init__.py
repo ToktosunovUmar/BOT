@@ -8,7 +8,6 @@ from .random_recipe import random_router
 from .user_info import user_info_router
 from .buttons import buttons_router
 
-
 private_router = Router()
 
 dp.include_router(send_welcome_router)

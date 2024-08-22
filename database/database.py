@@ -22,4 +22,5 @@ class DataBase:
     def fetch(self, query: str, params: tuple = None, fetchall: bool = True):
         with sqlite3.connect(self.path) as conn:
             result = conn.execute(query, params)
+
             return result.fetchall()
