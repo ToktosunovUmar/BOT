@@ -3,7 +3,8 @@ import logging
 
 from bot_config import bot, dp, database
 from handlers import (
-    private_router
+    private_router,
+    group_router
 )
 
 
@@ -14,6 +15,7 @@ async def start_up(bot):
 
 async def start():
     dp.include_router(private_router)
+    dp.include_router(group_router)
     await dp.start_polling(bot)
 
 
