@@ -41,4 +41,3 @@ class Queries:
     ('Гороховый суп', '160', 'images/pea_soup.jpg', 3),
     ('Смузи', '100', 'images/cmuzy.jpg', 1),
     """
-
