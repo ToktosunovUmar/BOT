@@ -5,7 +5,7 @@ from datetime import timedelta
 group_router = Router()
 group_router.message.filter(F.chat.type != 'private')
 
-bad_words = ["негодяй", "сука", 'болван', "мерзавец", "глупец", "недоумок", "хам", "наглец", "обманщик"]
+bad_words = ["негодяй", 'болван', "мерзавец", "глупец", "недоумок", "хам", "наглец", "обманщик"]
 
 
 @group_router.message()
