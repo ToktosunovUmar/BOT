@@ -17,6 +17,9 @@ async def send_welcome(message: types.Message):
             ],
             [
                 types.InlineKeyboardButton(text="оставить отзыв", callback_data="feedback")
+            ],
+            [
+                types.InlineKeyboardButton(text="дома", callback_data="house")
             ]
         ]
 

@@ -38,7 +38,6 @@ async def process_number(message: types.Message, state: FSMContext):
     await message.answer("Когда вы посетили наш ресторан? (укажите дату)")
     await state.set_state(RestourantReview.visit_date)
 
-
 @dialog_router.message(RestourantReview.visit_date)
 async def process_visit_date(message: types.Message, state: FSMContext):
     visit_date = message.text
